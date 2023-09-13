@@ -1,7 +1,7 @@
 <%= render 'admin/dashboard/sidebar' %>
 <div class="user-form col-sm-6">
   <div class="search">
-    <%= form_tag search_users_path, method: :get, class: 'form-outline' do %>
+    <%= form_tag users_path, method: :get, class: 'form-outline' do %>
       <div class="form-group">
         <%= text_field_tag :search, params[:search], class: 'form-control', placeholder: 'Search by name, email, or ID', aria_describedby: 'basic-addon2' %>
       </div>

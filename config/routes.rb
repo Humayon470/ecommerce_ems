@@ -7,9 +7,5 @@ Rails.application.routes.draw do
   namespace :admin do
     get 'dashboard', to: 'dashboard#index'
   end
-  resources :users do
-    collection do
-      get 'search', to: 'users#search'
-    end
-  end
+  resources :users
 end
