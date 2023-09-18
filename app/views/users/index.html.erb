@@ -1,13 +1,28 @@
 <%= render 'admin/dashboard/sidebar' %>
-<div class="user-form col-sm-6">
+
+<div class="d-flex ">
   <div class="search">
     <%= form_tag users_path, method: :get, class: 'form-outline' do %>
+    <div class="d-flex">
       <div class="form-group">
-        <%= text_field_tag :search, params[:search], class: 'form-control', placeholder: 'Search by name, email, or ID', aria_describedby: 'basic-addon2' %>
+        <%= text_field_tag :search, params[:search], class: 'form-control style: width:156%', placeholder: 'Search by name, or email', aria_describedby: 'basic-addon2' %>
       </div>
-      <%= submit_tag 'Search', class: 'btn btn-primary' %>
+      <div class="search-btn">
+        <%= submit_tag 'Search', class: 'btn btn-primary' %>
+      </div>
+    </div>
     <% end %>
   </div>
+  <div class="export text-center">
+    <%= link_to 'Export CSV', export_csv_users_path(format: :csv), class: 'btn btn-primary' %>
+  </div>
+
+</div>
+
+
+<div class="user-form col-sm-6">
+ 
+ 
   <%= render 'form' %>
   <div class="pagy_nav_bootstrap" style="margin-left: 270px;"><%== pagy_bootstrap_nav(@pagy).html_safe %></div>
 </div>
