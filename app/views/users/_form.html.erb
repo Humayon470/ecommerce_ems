@@ -1,10 +1,21 @@
-
-<table class="table table-bordered" style="margin-left: 270px; width: 165%;">
+<table class="table table-bordered table-sortable" style="margin-left: 270px; width: 165%;">
   <thead>
     <tr>
-      <th scope="col">ID</th>
-      <th scope="col">Name</th>
-      <th scope="col">Email</th>
+      <th scope="col">
+        <%= link_to users_path(sort: "id", direction: sort_direction("id")) do %>
+          ID
+        <% end %>
+      </th>
+      <th scope="col">
+        <%= link_to users_path(sort: "name", direction: sort_direction("name")) do %>
+          Name
+        <% end %>
+      </th>
+      <th scope="col">
+        <%= link_to users_path(sort: "email", direction: sort_direction("email")) do %>
+          Email
+        <% end %>
+      </th>
       <th scope="col">Role</th>
       <th scope="col">Actions</th>
     </tr>
