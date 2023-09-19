@@ -2,7 +2,7 @@
 
 <div class="d-flex ">
   <div class="search">
-    <%= form_tag users_path, method: :get, class: 'form-outline' do %>
+    <%= form_tag admin_users_path, method: :get, class: 'form-outline' do %>
     <div class="d-flex">
       <div class="form-group">
         <%= text_field_tag :search, params[:search], class: 'form-control style: width:156%', placeholder: 'Search by name, or email', aria_describedby: 'basic-addon2' %>
@@ -14,7 +14,7 @@
     <% end %>
   </div>
   <div class="export text-center">
-    <%= link_to 'Export CSV', export_csv_users_path(format: :csv), class: 'btn btn-primary' %>
+    <%= link_to 'Export CSV', export_csv_admin_users_path(format: :csv), class: 'btn btn-primary' %>
   </div>
 
 </div>

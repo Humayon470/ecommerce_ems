@@ -5,11 +5,11 @@ Rails.application.routes.draw do
     registrations: 'registrations'
   }
   namespace :admin do
-    get 'dashboard', to: 'dashboard#index'
-  end
-  resources :users do
-    collection do
-      get 'export_csv'
+    resources :users do
+      collection do
+        get 'export_csv'
+      end
     end
+    get 'dashboard', to: 'dashboard#index'
   end
 end 

@@ -2,17 +2,17 @@
   <thead>
     <tr>
       <th scope="col">
-        <%= link_to users_path(sort: "id", direction: sort_direction("id")) do %>
+        <%= link_to admin_users_path(sort: "id", direction: sort_direction("id")) do %>
           ID
         <% end %>
       </th>
       <th scope="col">
-        <%= link_to users_path(sort: "name", direction: sort_direction("name")) do %>
+        <%= link_to admin_users_path(sort: "name", direction: sort_direction("name")) do %>
           Name
         <% end %>
       </th>
       <th scope="col">
-        <%= link_to users_path(sort: "email", direction: sort_direction("email")) do %>
+        <%= link_to admin_users_path(sort: "email", direction: sort_direction("email")) do %>
           Email
         <% end %>
       </th>
@@ -28,13 +28,13 @@
         <td><%= user.email %></td>
         <td><%= user.role %></td>
         <td>
-          <%= link_to edit_user_path(user), class: 'btn btn-warning btn-sm' do %>
+          <%= link_to edit_user_registration_path(@user), class: 'btn btn-warning btn-sm' do %>
             <i class="fas fa-edit"></i> Edit
           <% end %>
-          <%= link_to user_path(user), class: 'btn btn-info btn-sm' do %>
+          <%= link_to admin_user_path(user), class: 'btn btn-info btn-sm' do %>
             <i class="fas fa-eye"></i> Show
           <% end %>
-          <%= link_to user_path(user), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' do %>
+          <%= link_to admin_user_path(user), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' do %>
             <i class="fas fa-trash-alt"></i> Delete
           <% end %>
         </td>
