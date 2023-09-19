@@ -11,6 +11,21 @@ class Admin::UsersController < ApplicationController
     @user= User.find(params[:id])
     authorize @user
   end
+
+  def edit
+    @user = User.find(params[:id])
+    authorize @user
+  end
+
+  def update
+    authorize @user
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      redirect_to admin_users_url, notice: 'User was successfully updated.'
+    else
+      render :edit
+    end
+  end
   
   def destroy
     @user= User.find(params[:id])
@@ -46,5 +61,9 @@ class Admin::UsersController < ApplicationController
 
   def sort_direction
     params[:direction] || "asc"
+  end
+
+  def user_params
+    params.require(:user).permit(:name, :email, :role)
   end
 end
