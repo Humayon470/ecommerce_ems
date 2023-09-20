@@ -58,3 +58,4 @@ gem "letter_opener", group: :development
 gem "pundit"
 gem "pagy"
 gem "csv"
+gem 'devise_invitable', '~> 2.0.0'
