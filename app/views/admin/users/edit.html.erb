@@ -3,7 +3,7 @@
   <%= form_for [:admin, @user] do |f| %>
     <div class="form-group mb-3">
       <%= f.label :name %>
-      <%= f.text_field :name, class: 'form-control' %>
+      <%= f.text_field :name, class: 'form-control', value: f.object.name.capitalize %>
     </div>
 
     <div class="form-group mb-3">
