@@ -1,6 +1,5 @@
-<%= render 'admin/dashboard/sidebar' %>
-<div class="new-form col-sm-4">
-  <h2 class="header">Edit User</h2>
+<div class="new-form col-sm-6 mt-5 mx-auto">
+  <h2 class="header text-center mb-4">Edit User</h2>
   <%= form_for [:admin, @user] do |f| %>
     <div class="form-group mb-3">
       <%= f.label :name %>

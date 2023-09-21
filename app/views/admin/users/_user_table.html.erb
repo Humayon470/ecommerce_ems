@@ -1,4 +1,4 @@
-<table class="table table-bordered table-sortable" style="margin-left: 270px; width: 165%;">
+<table class="table table-bordered table-sortable">
   <thead>
     <tr>
       <th scope="col">
@@ -22,7 +22,7 @@
   </thead>
   <tbody>
     <% @users.each do |user| %>
-      <tr>
+      <tr data-controller="delete-confirmation">
         <td><%= user.id %></td>
         <td><%= user.name %></td>
         <td><%= user.email %></td>
@@ -34,11 +34,30 @@
           <%= link_to admin_user_path(user), class: 'btn btn-info btn-sm' do %>
             <i class="fas fa-eye"></i> Show
           <% end %>
-          <%= link_to admin_user_path(user), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' do %>
+          <button class="btn btn-danger btn-sm" data-action="click->delete-confirmation#show" data-delete-url="<%= admin_user_path(user) %>">
             <i class="fas fa-trash-alt"></i> Delete
-          <% end %>
+          </button>     
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
+
+<div class="modal" tabindex="-1" role="dialog" id="del-modal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Confirm Delete</h5>
+        <button type="button" class="close" id="close-btn" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p> Are you sure you want to delete this user?.</p>
+      </div>
+      <div class="modal-footer">
+        <%= link_to "confirm", '', method: :delete, class: "btn btn-danger btn-md", id: "del-btn" %>
+      </div>
+    </div>
+  </div>
+</div>
