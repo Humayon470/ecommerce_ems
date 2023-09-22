@@ -1,0 +1,16 @@
+<div class="row mt-5">
+  <div class="col-md-11">
+    <h1>Products</h1>
+  </div>
+
+  <div class="col-1">
+    <%= link_to new_admin_product_path, class: 'btn btn-primary' do %>
+      <span class="text-truncate">Add Product</span>
+    <% end %>
+  </div>
+</div>
+<hr>
+
+<div class="product-table mt-5">
+  <%= render 'product_table', products: @products %>
+</div>

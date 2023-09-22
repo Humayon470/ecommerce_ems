@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     invitations: 'invitations'
   }
   namespace :admin do
+    resources :products
     resources :users do
       collection do
         get :export_csv

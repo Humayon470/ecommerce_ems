@@ -1,24 +1,52 @@
-/* app/assets/stylesheets/dashboard.css */
-
-/* Style the sidebar */
+/* Style for the sidebar */
 #sidebar {
-  height: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 250px;
-  background-color: #333;
-  color: #fff;
+  min-width: 250px; /* Set a minimum width for the sidebar */
+  max-width: 250px; /* Set a maximum width for the sidebar */
+  height: 100%; /* Make the sidebar full height */
+  position: fixed; /* Fixed positioning */
+  top: 0; /* Align to the top */
+  left: 0; /* Align to the left */
+  z-index: 1; /* Add a z-index to ensure the sidebar appears above the content */
+  background-color: #333; /* Background color */
+  color: #fff; /* Text color */
+  padding-top: 20px; /* Top padding */
 }
 
-/* Style sidebar links */
-#sidebar a {
-  color: #fff;
+/* Style for the sidebar heading */
+#sidebar h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
 }
 
-/* Style active link */
-#sidebar a.active {
-  font-weight: bold;
+/* Style for the sidebar navigation links */
+#sidebar ul {
+  list-style-type: none;
+  padding: 0;
 }
 
-/* Add more custom styles as needed */
+#sidebar ul li {
+  padding: 10px;
+  transition: background-color 0.3s;
+}
+
+#sidebar ul li:hover {
+  background-color: #555; /* Hover background color */
+}
+
+/* Style for the main content area */
+main {
+  margin-left: 250px; /* Set a margin to accommodate the sidebar */
+  padding: 15px;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  #sidebar {
+    width: 0;
+    display: none;
+  }
+  
+  main {
+    margin-left: 0;
+  }
+}

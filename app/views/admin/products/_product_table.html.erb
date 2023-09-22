@@ -1,0 +1,31 @@
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Title</th>
+      <th scope="col">Price</th>
+      <th scope="col">Status</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% products.each do |product| %>
+        <td><%= product.id %></td>
+        <td><%= product.title %></td>
+        <td><%= product.price %></td>
+        <td><%= product.status %></td>
+        <td>
+          <%= link_to edit_admin_product_path(product), class: 'btn btn-warning btn-sm' do %>
+            <i class="fas fa-edit"></i> Edit
+          <% end %>
+          <%= link_to admin_product_path(product), class: 'btn btn-info btn-sm' do %>
+            <i class="fas fa-eye"></i> Show
+          <% end %>
+          <%= link_to admin_product_path(product), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm', remote: true do %>
+            <i class="fas fa-trash-alt"></i> Delete
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
