@@ -28,7 +28,7 @@ class Admin::UsersController < AdminController
   end
 
   def export_csv
-    result = GenerateUserCsv.call(users: User.user.ordered)
+    result = GenerateUserCsv.call
 
     respond_to do |format|
       format.csv do

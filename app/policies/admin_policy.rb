@@ -24,6 +24,10 @@ class AdminPolicy < ApplicationPolicy
     @user.admin?
   end
 
+  def destroy?
+    @user.admin?
+  end
+
   def export_csv?
     @user.admin?
   end

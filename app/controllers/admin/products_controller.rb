@@ -2,7 +2,7 @@ class Admin::ProductsController < AdminController
   before_action :find_product, only: [:show, :edit, :update, :destroy]
 
   def index
-    @products = Product.ordered
+    @pagy, @products = pagy(Product.search(params[:search], params[:sort], params[:direction]), items:5)
 
   end
 
@@ -34,6 +34,16 @@ class Admin::ProductsController < AdminController
 
   def destroy
     @product.destroy
+  end
+
+  def export_csv
+    result = GenerateProductCsv.call
+
+    respond_to do |format|
+      format.csv do
+        send_data result.csv_data, filename: "products.csv"
+      end
+    end
   end
 
 
