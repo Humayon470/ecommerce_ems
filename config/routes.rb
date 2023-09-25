@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root to: "homepage#index"
+  resources :homepage
 
   devise_for :users, controllers: {
     registrations: 'registrations',

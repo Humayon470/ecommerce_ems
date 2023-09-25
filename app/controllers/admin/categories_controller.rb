@@ -38,7 +38,7 @@ class Admin::CategoriesController < AdminController
   private
 
   def category_params
-    params.require(:category).permit(:name)
+    params.require(:category).permit(:name, :availability)
   end
 
   def find_category

@@ -32,16 +32,18 @@
         <td><%= product.status %></td>
         <td>
           <%= link_to edit_admin_product_path(product), class: 'btn btn-warning btn-sm' do %>
-            <i class="fas fa-edit"></i> Edit
+            Edit
           <% end %>
           <%= link_to admin_product_path(product), class: 'btn btn-info btn-sm' do %>
-            <i class="fas fa-eye"></i> Show
+            Show
           <% end %>
           <%= link_to admin_product_path(product), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm', remote: true do %>
-            <i class="fas fa-trash-alt"></i> Delete
+            Delete
           <% end %>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
+<hr>
+

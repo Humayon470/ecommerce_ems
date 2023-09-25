@@ -3,9 +3,16 @@
   <%= f.label :name %>
   <%= f.text_field :name, class: 'form-control' %> 
 </div>
+
+<div class="form-group mb-3">
+  <%= f.label :availability %>
+  <%= f.select :availability, Category.availabilities.keys, class: 'form-control' %> 
+</div>
+
 <div class="actions text-center mt-3">
   <%= f.submit 'Submit', class: 'btn btn-primary gap-2 col-6 mx-auto' %>
 </div>
+
 <div class="actions mt-5">
   <%= link_to "Back", admin_categories_path, class: 'btn btn-primary' %>
 </div>

@@ -1,5 +1,5 @@
 module CategoriesHelper
   def categories
-    Category.ordered
+    Category.all
   end
 end
