@@ -1,0 +1,6 @@
+<% if flash[:error].present? %>
+  toastr.error('<%= j flash[:error] %>');
+<% else %>
+  toastr.success('Category is successfully deleted.');
+  $('.category-table').html('<%= j render 'category_table', categories: categories %>');
+<% end %>
