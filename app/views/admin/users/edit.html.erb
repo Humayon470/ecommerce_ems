@@ -4,11 +4,17 @@
     <div class="form-group mb-3">
       <%= f.label :name %>
       <%= f.text_field :name, class: 'form-control', value: f.object.name.capitalize %>
+      <span class="text-danger">
+        <%= @user.errors[:name].to_sentence %>
+      </span>
     </div>
 
     <div class="form-group mb-3">
       <%= f.label :email %>
       <%= f.email_field :email, class: 'form-control' %>
+      <span class="text-danger">
+        <%= @user.errors[:email].to_sentence %>
+      </span>
     </div>
 
     <div class="form-group mb-3">

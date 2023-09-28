@@ -24,7 +24,7 @@
     <% @users.each do |user| %>
       <tr data-controller="delete-confirmation">
         <td><%= user.id %></td>
-        <td><%= user.name %></td>
+        <td><%= user.name.capitalize %></td>
         <td><%= user.email %></td>
         <td><%= user.role %></td>
         <td>

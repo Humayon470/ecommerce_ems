@@ -1,11 +1,12 @@
 require 'csv'
+
 class GenerateUserCsv
   include Interactor
 
   def call
     users = User.user.ordered
     context.csv_data = CSV.generate(headers: true) do |csv|
-      csv << ["ID", "Name", "Email", "Role"]
+      csv << %w[ID Name Email Role]
 
       users.each do |user|
         csv << [user.id, user.name, user.email, user.role]
