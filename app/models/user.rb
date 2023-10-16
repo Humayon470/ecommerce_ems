@@ -9,4 +9,13 @@ class User < ApplicationRecord
 
     where("name = :term OR email = :term ", term: "#{search_params}")
   end
+  def self.sort_by_column(column, direction)
+    sortable_columns = %w[id name email]
+      if sortable_columns.include?(column)
+        order("#{column} #{direction}")
+      else
+        order(id: :asc)
+      end
+  end
 end
+
