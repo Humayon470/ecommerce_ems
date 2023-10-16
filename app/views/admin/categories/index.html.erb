@@ -1,0 +1,16 @@
+<div class="row mt-5">
+  <div class="col-md-10">
+    <h1>Category</h1>
+  </div>
+
+  <div class="col-1">
+    <%= link_to new_admin_category_path, class: 'btn btn-primary' do %>
+      <span class="text-truncate">Add Category</span>
+    <% end %>
+  </div>
+</div>
+<hr>
+
+<div class="category mt-3">
+  <%= render 'category_table', categories: @categories %>
+</div>
