@@ -1,9 +1,33 @@
-<h1>Welcome to Ecommerce</h1>
-<% if user_signed_in? %>
-Logged in as <strong><%= current_user.email %></strong>.
-  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> | 
-  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link' %>
-  <% else %>
-  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link' %> | 
-  <%=link_to "Login", new_user_session_path, :class => 'navbar-link' %>
-<% end %>
+<div class="row mt-3">
+  <% @products.each do |product| %>
+    <div class="col-md-3 mb-3">
+      <div class="card" style="width: 18rem; height: 500px;">
+        <%= image_tag product.product_img, class: "card-img-top", size: '800x300' %>
+        <div class="card-body">
+          <h5 class="card-title">Name: <%= product.title %></h5>
+          <p class="card-text">Price: <%= product.price %></p>
+          <hr>
+
+          <div class="row" >
+            <div class="col-md-6">
+              <div class="mt-4">
+                <%= link_to "Add to cart" do %>
+                <i class="bi bi-cart3"></i>
+                  Add to cart
+                <% end %>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="mt-4">
+                <%= link_to homepage_path(product) do %>
+                <i class="bi bi-list"></i>show
+                <% end %>
+              </div>
+            </div> 
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+<div class="pagy_nav_bootstrap"><%== pagy_bootstrap_nav(@pagy).html_safe %></div>

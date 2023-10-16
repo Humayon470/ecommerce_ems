@@ -16,11 +16,11 @@
       <p><%= @product.category.name %></p>
     </div>
     <div class="col-md-6 mt-3">
-      <%= image_tag @product.product_img %>
+      <%= image_tag @product.product_img ,  size: '400x300'%>
     </div>
   </div>
   <hr>
   <div class="actions mt-5">
-    <%= link_to "Back",admin_products_path, class: 'btn btn-primary'%>
+    <%= link_to "Back", root_path, class: 'btn btn-primary'%>
   </div>
 </div>
