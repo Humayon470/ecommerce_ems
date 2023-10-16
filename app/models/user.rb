@@ -13,7 +13,7 @@ class User < ApplicationRecord
   def self.search(term, column, direction)
     scope = self.user
 
-    scope = scope.where("name = :term OR email = :term ", term: "#{term.downcase}") if term.present?
+    scope = scope.where("name ILIKE :term OR email = :term ", term: "#{term.downcase}") if term.present?
 
     scope.ordered(column, direction)
   end

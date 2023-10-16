@@ -1,0 +1,6 @@
+<% if flash[:error].present? %>
+  toastr.error('<%= j flash[:error] %>');
+<% else %>
+  toastr.success('Product is successfully deleted.');
+  $('.product-table').html('<%= j render 'product_table', products: products %>');
+<% end %>

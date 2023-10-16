@@ -1,27 +1,25 @@
-<!-- app/views/dashboard/index.html.erb -->
-
 <div class="container-fluid">
   <div class="row">
     <!-- Sidebar -->
     <nav id="sidebar" class="col-md-3 col-lg-2 bg-primary">
       <div class="p-4">
         <h2 class="text-white">EMS</h2>
-        <ul class="list-unstyled components">
-          <li>
-            <%= link_to "Dashboard", admin_dashboard_path %>
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <%= link_to "Dashboard", admin_dashboard_path, class: "nav-link text-white" %>
           </li>
-          
-          <li>
-            <%= link_to "User", admin_users_path %>
+          <li class="nav-item">
+            <%= link_to "Users", admin_users_path, class: "nav-link text-white" %>
           </li>
-          <li>
-            <%= link_to "Products" %>
+          <li class="nav-item">
+            <%= link_to "Products", admin_products_path, class: "nav-link text-white" %>
           </li>
         </ul>
       </div>
     </nav>
 
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+      <!-- Your main content goes here -->
     </main>
   </div>
 </div>
