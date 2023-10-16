@@ -1,10 +1,26 @@
 <table class="table table-bordered">
   <thead>
     <tr>
-      <th scope="col">ID</th>
-      <th scope="col">Title</th>
-      <th scope="col">Price</th>
-      <th scope="col">Status</th>
+      <th scope="col">
+        <%= link_to admin_products_path(sort: "id", direction: sort_direction("id")) do %>
+          ID
+        <% end %>
+      </th>      
+      <th scope="col">
+        <%= link_to admin_products_path(sort: "id", direction: sort_direction("id")) do %>
+          Title
+        <% end %>
+      </th>       
+      <th scope="col">
+        <%= link_to admin_products_path(sort: "id", direction: sort_direction("id")) do %>
+          Price
+        <% end %>
+      </th> 
+      <th scope="col">
+        <%= link_to admin_products_path(sort: "id", direction: sort_direction("id")) do %>
+          Status
+        <% end %>
+      </th> 
       <th scope="col">Actions</th>
     </tr>
   </thead>

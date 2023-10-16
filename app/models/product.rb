@@ -7,5 +7,13 @@ class Product < ApplicationRecord
     draft: 1,
     pending: 2
   }
+  def self.search(term, column, direction)
+    scope = self
+
+    scope = scope.where("title ILIKE :term ", term: "#{term.downcase}") if term.present?
+
+    scope.ordered(column, direction)
+  end
 
 end
+
