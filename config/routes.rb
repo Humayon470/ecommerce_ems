@@ -7,5 +7,9 @@ Rails.application.routes.draw do
   namespace :admin do
     get 'dashboard', to: 'dashboard#index'
   end
-  resources :users
-end
+  resources :users do
+    collection do
+      get 'export_csv'
+    end
+  end
+end 
