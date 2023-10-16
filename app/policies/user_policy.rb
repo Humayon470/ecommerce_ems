@@ -8,4 +8,15 @@ class UserPolicy < ApplicationPolicy
   def index?
     user.admin? # Only admin users are authorized for the index action
   end
+  def show?
+    user.admin?
+  end
+
+  def edit?
+    user.admin?
+  end
+
+  def update?
+    user.admin?
+  end
 end
