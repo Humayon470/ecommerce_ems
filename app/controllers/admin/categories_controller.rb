@@ -12,6 +12,7 @@ class Admin::CategoriesController < AdminController
   end
 
   def create
+    debugger
     @category = Category.new(category_params)
   
     if @category.save

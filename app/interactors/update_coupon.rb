@@ -8,7 +8,7 @@ class UpdateCoupon
       update_products_with_coupon(previous_products)
       context.coupon = @coupon
     else
-      context.fail!(message: @coupon.errors.full_messages.join(', '))
+      context.fail!(coupon: @coupon)
     end
   end
 

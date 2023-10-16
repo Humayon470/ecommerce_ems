@@ -1,6 +1,6 @@
-# frozen_string_literal: true
-
 class User < ApplicationRecord
+  has_one :cart
+
   validates :name, presence: true, format: { with: /\A[a-zA-Z]+\z/, message: 'only allows letters' }
   validates :email, presence: true,
                     format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i, message: 'is not a valid email address' }

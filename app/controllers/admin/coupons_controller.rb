@@ -15,7 +15,7 @@ class Admin::CouponsController < AdminController
     if result.success?
       redirect_to admin_coupons_path, notice: 'Coupon was successfully created.'
     else
-      flash[:alert] = result.message
+      @coupon = result.coupon
       render :new
     end
   end
@@ -30,7 +30,7 @@ class Admin::CouponsController < AdminController
     if result.success?
       redirect_to admin_coupons_path, notice: 'Coupon was successfully Updated.'
     else
-      flash[:alert] = result.message
+      @coupon = result.coupon
       render :edit
     end
   end

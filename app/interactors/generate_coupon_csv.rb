@@ -6,7 +6,7 @@ class GenerateCouponCsv
   def call
     coupons = Coupon.ordered.includes(:products)
     context.csv_data = CSV.generate(headers: true) do |csv|
-      csv << ['ID', 'Name', 'Value', 'Accosiated Products']
+      csv << %w[ID Name Value Accosiated_Products]
 
       coupons.each do |coupon|
         product_names = coupon.products.pluck(:title).join(', ')

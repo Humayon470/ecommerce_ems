@@ -3,6 +3,7 @@ class HomepageController < ApplicationController
 
   def index
     @pagy, @products = pagy(Product.product_show, items: 8)
+    @cart = Cart.user_cart(current_user)
   end
 
   def show; end

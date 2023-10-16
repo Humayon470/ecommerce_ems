@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 module CouponsHelper
   def updated_coupons
     Coupon.ordered

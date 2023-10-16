@@ -1,6 +1,8 @@
 class Product < ApplicationRecord
   belongs_to :category
   belongs_to :coupon, optional: true
+  has_many :productscarts
+  has_many :carts, through: :productscarts
   has_one_attached :product_img
 
   validates :title, presence: true
@@ -16,13 +18,13 @@ class Product < ApplicationRecord
   def self.search(term, column, direction)
     scope = self
 
-    scope = scope.where("title ILIKE :term ", term: "#{term.downcase}") if term.present?
+    scope = scope.where("title ILIKE :term ", term: "#{ term.downcase }") if term.present?
 
     scope.ordered(column, direction)
   end
 
   def self.product_show
-    scope = self.publish.joins(:category).where(categories: {availability: 'active'})
+    scope = self.publish.includes( :category ).where( categories: { availability: 'active' } )
   end
 
 end

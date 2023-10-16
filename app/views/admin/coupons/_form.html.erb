@@ -9,7 +9,7 @@
 
 <div class="form-group">
   <%= f.label :value %>
-  <%= f.number_field :value, class: 'form-control' %>
+  <%= f.text_field :value, class: 'form-control' %>
   <span class="text-danger">
     <%= @coupon.errors[:value].join(', ') if @coupon.errors[:value].present? %>
   </span>
