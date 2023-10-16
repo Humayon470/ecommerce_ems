@@ -12,7 +12,7 @@
   <body>
     <%= render 'layouts/navbar' %>
     <div class="container">
-      <%= render 'layouts/messages' %>
+      <%= render 'layouts/messages', flash: flash %>
 
       <%= yield %>
     </div>

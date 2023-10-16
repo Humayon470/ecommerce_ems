@@ -30,7 +30,7 @@
 
   <div class="form-group mb-3">
     <%= f.label :category_id, "Category" %>
-    <%= f.collection_select :category_id, Category.all, :id, :name %>
+    <%= f.collection_select :category_id, categories, :id, :name %>
   </div>
 
   <div class="form-group mb-3">
