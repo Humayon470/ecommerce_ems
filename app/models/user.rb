@@ -1,21 +1,21 @@
 class User < ApplicationRecord
-  enum role: {users: 0, admin: 1}
+  validates :name, presence: true, format: { with: /\A[a-zA-Z]+\z/, message: "only allows letters" }
+  validates :email, presence: true, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i, message: "is not a valid email address" }
+  
+  enum role: {
+    user: 0,
+    admin: 1
+  }
 
   devise :invitable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
   
-  def self.search(search_params)
-    return self.where(role: 'users') unless search_params.present?
+  def self.search(term, column, direction)
+    scope = self.user
 
-    where("name = :term OR email = :term ", term: "#{search_params}")
-  end
-  def self.sort_by_column(column, direction)
-    sortable_columns = %w[id name email]
-      if sortable_columns.include?(column)
-        order("#{column} #{direction}")
-      else
-        order(id: :asc)
-      end
+    scope = scope.where("name = :term OR email = :term ", term: "#{term.downcase}") if term.present?
+
+    scope.ordered(column, direction)
   end
 end
 

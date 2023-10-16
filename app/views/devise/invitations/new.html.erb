@@ -1,19 +1,23 @@
-<%= render 'admin/dashboard/sidebar' %>
-<div class="new-form col-sm-4">
-  <h2><%= t "devise.invitations.new.header" %></h2>
-
-  <%= form_for(resource, as: resource_name, url: invitation_path(resource_name), html: { method: :post }) do |f| %>
-    <%= render "devise/shared/error_messages", resource: resource %>
-
-    <% resource.class.invite_key_fields.each do |field| -%>
-      <div class="field mb-3">
-        <%= f.label field, class: 'mb-2' %><br />
-        <%= f.text_field field, class: 'form-control' %>
-      </div>
-    <% end %>
-
-    <div class="actions text-center mt-3">
-      <%= f.submit t("devise.invitations.new.submit_button"), class: 'btn btn-primary gap-2 col-6 mx-auto' %>
-    </div>
-  <% end %>
+<%= render 'layouts/sidebar' %>
+<div class=" col-md-4 mt-5">
+  <h1><%= t "devise.invitations.new.header" %></h1>
 </div>
+<hr>
+<%= form_for(resource, as: resource_name, url: invitation_path(resource_name), html: { method: :post }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+  <% resource.class.invite_key_fields.each do |field| -%>
+  <%= f.label field, class: 'mb-2' %><br />
+    <div class="row mb-4">
+      <div class="col-md-4">
+        <div class="input-group">
+          <%= f.text_field field, class: 'form-control' %></div>
+      </div>
+      <div class="col-sm-2">
+        <div class="input-group">
+          <%= f.submit t("devise.invitations.new.submit_button"), class: 'btn btn-primary gap-2 ' %>
+        </div>
+      </div>
+    </div>
+    <%= link_to "Back",admin_users_path, class: 'btn btn-primary'%>
+  <% end %>
+<% end %>

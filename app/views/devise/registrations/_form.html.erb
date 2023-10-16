@@ -1,11 +1,11 @@
-<div class="new-form col-sm-4">
-<h2 class="header">Sign up</h2>
+<div class="new-form mx-auto col-sm-4 mt-3">
+<h2 class="header text-center">Sign up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
   <div class="field">
     <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true, class: 'form-control' %>
+    <%= f.text_field :name, autofocus: true, class: 'form-control', value: f.object.name&.capitalize  %>
   </div>
 
   <div class="field">
