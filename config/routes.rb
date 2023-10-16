@@ -19,6 +19,12 @@ Rails.application.routes.draw do
     end
     resources :categories
 
+    resources :coupons do
+      collection do
+        get :export_csv
+      end
+    end
+
     get 'dashboard', to: 'dashboard#index'
   end
 end 

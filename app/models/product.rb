@@ -1,5 +1,6 @@
 class Product < ApplicationRecord
   belongs_to :category
+  belongs_to :coupon, optional: true
   has_one_attached :product_img
 
   validates :title, presence: true

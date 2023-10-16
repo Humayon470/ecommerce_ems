@@ -1,7 +1,6 @@
 import { Controller } from "stimulus";
 
 export default class extends Controller {
-  static targets = ["delete"];
 
   connect() {
     console.log("Connected to delete confirmation controller");

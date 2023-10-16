@@ -10,3 +10,5 @@ import 'bootstrap/dist/css/bootstrap'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import "controllers"
 import "stylesheets/application.scss"
+import "select2"
+import "select2/dist/css/select2.min.css"

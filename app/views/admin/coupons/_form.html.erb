@@ -1,0 +1,26 @@
+<%= form_with(model: [:admin, @coupon], local: true) do |f| %>
+<div class="form-group">
+  <%= f.label :name %>
+  <%= f.text_field :name, class: 'form-control' %>
+  <span class="text-danger">
+    <%= @coupon.errors[:name].join(', ') if @coupon.errors[:name].present? %>
+  </span>
+</div>
+
+<div class="form-group">
+  <%= f.label :value %>
+  <%= f.number_field :value, class: 'form-control' %>
+  <span class="text-danger">
+    <%= @coupon.errors[:value].join(', ') if @coupon.errors[:value].present? %>
+  </span>
+</div>
+
+<div class="form-group">
+  <%= label_tag "Associated Products" %>
+  <%= select_tag 'coupon[product_ids][]', options_for_select(product_select), multiple: true, class: 'form-control' %>
+</div>
+
+<div class="actions text-center mt-3">
+  <%= f.submit 'Submit', class: 'btn btn-primary gap-2 col-6 mx-auto' %>
+</div>
+<% end %>

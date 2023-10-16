@@ -14,9 +14,11 @@
       <p><%= @product.status %></p>
       <h3>Category:</h3>
       <p><%= @product.category.name %></p>
+      <h3>Coupon:</h3>
+      <p><%= @product.coupon.name %></p>
     </div>
     <div class="col-md-6 mt-3">
-      <%= image_tag @product.product_img %>
+      <%= image_tag @product.product_img, size: '400x300' %>
     </div>
   </div>
   <hr>

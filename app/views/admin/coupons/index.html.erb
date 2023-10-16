@@ -1,0 +1,39 @@
+<div class="row mt-5">
+  <div class="col-md-10">
+    <h1>Coupon</h1>
+  </div>
+
+  <div class="col-1">
+    <%= link_to export_csv_admin_coupons_path(format: :csv), class: 'btn btn-primary' do %>
+      <span class="text-truncate">Export CSV</span>
+    <% end %>
+  </div>
+
+  <div class="col-1">
+    <%= link_to new_admin_coupon_path, class: 'btn btn-primary' do %>
+      <span class="text-truncate">Add Coupon</span>
+    <% end %>
+  </div>
+</div>
+<hr>
+
+<%= form_tag admin_coupons_path, method: :get, remote: true do %>
+  <div class="row mb-4">
+    <div class="col-md-4">
+      <div class="input-group">
+        <%= text_field_tag :search, params[:search], class: 'form-control', placeholder: 'Search by coupon name' %>
+      </div>
+    </div>
+
+    <div class="col-sm-2">
+      <div class="input-group">
+        <%= submit_tag 'Search', class: 'btn btn-primary btn-md' %>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<div class="coupon-table mt-3">
+  <%= render 'coupon_table', coupons: @coupons%>
+  <div class="pagy_nav_bootstrap"><%== pagy_bootstrap_nav(@pagy).html_safe %></div>
+</div>

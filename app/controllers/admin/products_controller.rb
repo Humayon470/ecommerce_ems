@@ -3,7 +3,6 @@ class Admin::ProductsController < AdminController
 
   def index
     @pagy, @products = pagy(Product.search(params[:search], params[:sort], params[:direction]), items:5)
-
   end
 
   def show; end

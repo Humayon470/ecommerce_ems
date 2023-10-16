@@ -1,0 +1,6 @@
+<% if flash[:error].present? %>
+  toastr.error('<%= j flash[:error] %>');
+<% else %>
+  toastr.success('Coupon is successfully deleted.');
+  $('.coupon-table').html('<%= j render 'coupon_table', coupons: updated_coupons %>');
+<% end %>

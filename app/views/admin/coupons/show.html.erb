@@ -1,0 +1,19 @@
+<div class="container mt-5">
+  <h1>Coupon Details</h1>
+  <hr>
+
+  <div class="row">
+    <div class="col-md-6">
+      <h3>Coupon Name:</h3>
+      <p><%= @coupon.name.capitalize %></p>
+      <h3>Value:</h3>
+      <p><%= @coupon.value %></p>
+      <h3>Accosiated Products:</h3>
+      <p><%= coupon_products %></p>
+    </div>
+  </div>
+  <hr>
+  <div class="actions mt-5">
+    <%= link_to "Back",admin_coupons_path, class: 'btn btn-primary'%>
+  </div>
+</div>
