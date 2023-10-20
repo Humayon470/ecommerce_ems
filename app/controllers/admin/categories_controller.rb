@@ -1,5 +1,5 @@
 class Admin::CategoriesController < AdminController
-  before_action :find_category, only: [:show, :edit, :update, :destroy]
+  before_action :find_category, except: [:create, :index]
 
   def index
     @categories = Category.ordered
@@ -8,7 +8,7 @@ class Admin::CategoriesController < AdminController
   def show; end
 
   def new
-    @category = Category.new
+
   end
 
   def create
@@ -43,7 +43,8 @@ class Admin::CategoriesController < AdminController
   end
 
   def find_category
-    @category = Category.find(params[:id])
+    @category = Category.find(params[:id]) if params[:id].present?
+    @category = Category.new
   end
 
 end
